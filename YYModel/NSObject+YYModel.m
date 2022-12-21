@@ -9,8 +9,6 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-// modify by wi // 2022.12.21 // 1.0.4.1
-
 #import "NSObject+YYModel.h"
 #import "YYClassInfo.h"
 #import <objc/message.h>
@@ -911,8 +909,15 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                         if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                     }
                                     NSObject *newOne = [cls new];
-                                    [newOne yy_modelSetWithDictionary:one];
-                                    if (newOne) [objectArr addObject:newOne];
+                                    // before
+//                                    [newOne yy_modelSetWithDictionary:one];
+//                                    if (newOne) [objectArr addObject:newOne];
+                                    // end before
+                                    // change
+                                    if ([newOne yy_modelSetWithDictionary:one]) {
+                                        [objectArr addObject:newOne];
+                                    }
+                                    // end change
                                 }
                             }
                             ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)model, meta->_setter, objectArr);
@@ -951,8 +956,15 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                         if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                     }
                                     NSObject *newOne = [cls new];
-                                    [newOne yy_modelSetWithDictionary:(id)oneValue];
-                                    if (newOne) dic[oneKey] = newOne;
+                                    // before
+//                                    [newOne yy_modelSetWithDictionary:(id)oneValue];
+//                                    if (newOne) dic[oneKey] = newOne;
+                                    // end before
+                                    // change
+                                    if ([newOne yy_modelSetWithDictionary:(id)oneValue]) {
+                                        dic[oneKey] = newOne;
+                                    }
+                                    // end change
                                 }
                             }];
                             ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)model, meta->_setter, dic);
@@ -986,8 +998,16 @@ static void ModelSetValueForProperty(__unsafe_unretained id model,
                                     if (!cls) cls = meta->_genericCls; // for xcode code coverage
                                 }
                                 NSObject *newOne = [cls new];
-                                [newOne yy_modelSetWithDictionary:one];
-                                if (newOne) [set addObject:newOne];
+                                // befor
+//                                [newOne yy_modelSetWithDictionary:one];
+//                                if (newOne) [set addObject:newOne];
+                                // end befor
+                                // change
+                                if ([newOne yy_modelSetWithDictionary:one]) {
+                                    [set addObject:newOne];
+                                }
+                                // end change
+                                
                             }
                         }
                         ((void (*)(id, SEL, id))(void *) objc_msgSend)((id)model, meta->_setter, set);

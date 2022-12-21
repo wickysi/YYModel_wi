@@ -11,6 +11,7 @@
 
 // modify by wi // 2022.12.21
 // modify by wi // 2022.12.21 
+// modify by wi // 2022.12.21 // 1.0.4.2
 
 #import "NSObject+YYModel.h"
 #import "YYClassInfo.h"

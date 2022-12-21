@@ -9,10 +9,7 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-// modify by wi // 2022.12.21
-// modify by wi // 2022.12.21 
-// modify by wi // 2022.12.21 // 1.0.4.2
-// modify by wi // 2022.12.21 // 1.0.5
+// modify by wi // 2022.12.21 // 1.0.4.1
 
 #import "NSObject+YYModel.h"
 #import "YYClassInfo.h"
